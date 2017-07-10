@@ -15,6 +15,10 @@ function editprofile_title() {
     echo "Edit Profile";
 }
 
+function upgrade_title() {
+    echo "Upgrade Package";
+}
+
 function chpwd_title() {
     echo "Change Password";
 }
@@ -69,9 +73,9 @@ function menu_profile() {
                 "icon" => "fa fa-glass",
             ),
              array(
-                "label" => "Upgrade",
+                "label" => "Upgrade Package",
                 "url" => "/profile/upgrade",
-                "icon" => "fa fa-download",
+                "icon" => "fa fa-briefcase",
             ),
             array(
                 "label" => "Edit Profile",
@@ -162,7 +166,7 @@ function the_profile() {
         global $hooks;
         //$hooks->add_action('global_css','myprofile_css');
         $hooks->add_action('global_js', 'editprofile_js');
-        $hooks->add_action('the_title', "editprofile_title");
+        $hooks->add_action('the_title', "upgrade_title");
         the_head();
         include 'upgrade.tpl.php';
         the_footer();

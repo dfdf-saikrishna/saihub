@@ -214,7 +214,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin: 0 0 0 30px;
     text-decoration: none;
     display: inline-block;
-    filter: invert(1);
+    filter:brightness(0) invert(1);
 }
 
 .logo-icon {
@@ -4741,6 +4741,22 @@ body:not(.lef-side-collapsed) .left-side .left-side-inner{    overflow: auto;hei
 
 
 /* Upgrade table */
-.upgrader
-{background:red;}
+.plans {padding: 0 !important;}
+.plans h5 {background: #ed1c24;padding: 10px 10px;color: #fff;font-size: 16px;text-transform: uppercase;
+    letter-spacing: 1px;font-weight: bold;}
+.panel-pricing {-moz-transition: all .3s ease;-o-transition: all .3s ease;-webkit-transition: all .3s ease;}
+.panel-pricing:hover {box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);}
+.panel-pricing .panel-heading {padding:13px 10px;color:#fdfdfd;background-color:#424f63;border-color:#424f63;}
+.panel-pricing .panel-heading .fa {margin-top: 10px;font-size: 58px;}
+.panel-pricing .list-group-item {color: #777777;border-bottom: 1px solid rgba(250, 250, 250, 0.5);}
+.panel { border:1px solid #d4d4d4 !important;}
+.panel-pricing .panel-body {font-size:40px;padding:10px;margin:0px;border-bottom: 1px solid #cfcfcf;}
+.panel-footer { border:0px solid !important;background-color:#fff !important;}
+.panel-pricing .panel-heading h3 {margin: 0;padding: 10px;}
+p.p-title { font-size:18px;text-align: center;text-transform: capitalize;}
+p.p-time { font-size:18px;text-align: center;text-transform: capitalize;}
+p.p-price { font-size:18px;text-align: center;text-transform: capitalize;color: #ed1c24;font-weight: bold;}
+p.p-tax { font-size:18px;text-align: center;text-transform: capitalize;}
+.sub-btn {background: #424f63;color: #fff;border-radius: 0px;padding: 5px 8px;}
+.sub-btn:hover, .sub-btn:focus { color:#fff; text-decoration:none;}
 /* Upgrade table */
