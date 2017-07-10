@@ -4738,3 +4738,9 @@ height: 24px;}
 footer{position:fixed;}
 body:not(.lef-side-collapsed) .left-side {overflow: hidden;height:100%}
 body:not(.lef-side-collapsed) .left-side .left-side-inner{    overflow: auto;height: 100%;width: 110%;}
+
+
+/* Upgrade table */
+.upgrader
+{background:red;}
+/* Upgrade table */
