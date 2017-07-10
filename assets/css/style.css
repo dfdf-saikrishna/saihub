@@ -1089,15 +1089,14 @@ h5.left-nav-title {
 
 footer {
     background: #fff;
-    padding: 15px;
+    padding: 5px;
     color: #7A7676;
     font-size: 12px;
-    position: static;
+    position: fixed;
     bottom: 0;
     width: 100%;
     border-top: 1px solid #eff0f4;
     z-index: 999;
-    left:240px;
 }
 
 footer.sticky-footer {
@@ -1122,7 +1121,7 @@ footer.sticky-footer {
 .state-info {
     position: absolute;
     right: 15px;
-    top: 20px;
+    top: 10px;
 }
 
 .state-info .panel {
@@ -4735,7 +4734,7 @@ right: 0;
 text-align: center;
 font-size: 21px;
 height: 24px;}
-footer{position:fixed;}
+//footer{position:fixed;}
 body:not(.lef-side-collapsed) .left-side {overflow: hidden;height:100%}
 body:not(.lef-side-collapsed) .left-side .left-side-inner{    overflow: auto;height: 100%;width: 110%;}
 
