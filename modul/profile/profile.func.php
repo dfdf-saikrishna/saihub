@@ -1,5 +1,12 @@
 <?php
 
+function checkplan(){
+	global $db;
+	$db->bind("uid",$_SESSION["uid"]);
+	$checkplan = $db->query("SELECT * FROM user_id u, product p WHERE u.uid=:uid AND u.product = p.product_id");
+	return $checkplan;
+}
+
 function pwdCorrect($pwd){
     global $db;
     $db->bind("uid",$_SESSION["uid"]);

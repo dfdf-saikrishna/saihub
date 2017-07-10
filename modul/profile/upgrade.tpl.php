@@ -1,3 +1,27 @@
+<?php 
+$plan = checkplan(); 
+$current_plan = $plan[0]['product_id'];
+$firstblock = $secondblock = $thirdblock = $fourthblock = "";	
+$status1 = $status2 = $status3 = $status4 = "Upgrade Now";
+if($current_plan == "27"){
+	$firstblock = "disabled";
+}
+if($current_plan == "28"){
+	$firstblock = "disabled";
+	$secondblock = "disabled";
+}
+if($current_plan == "29"){
+	$firstblock = "disabled";
+	$secondblock = "disabled";
+	$thirdblock = "disabled";
+}
+if($current_plan == "30"){
+	$firstblock = "disabled";
+	$secondblock = "disabled";
+	$thirdblock = "disabled";
+	$fourthblock = "disabled";
+}
+?>
 <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
@@ -5,6 +29,15 @@
                             Upgrade Package
                         </header>
                         <div class="panel-body">
+						<?php if($current_plan == "30"){  ?>
+							<div id='suksesupdate' class="alert alert-success alert-block fade in">
+                               <h4>
+                                    <i class="icon-ok-sign"></i>
+                                    Sorry!
+                                </h4>
+                                <p>You Cannot Upgrade</p>
+                            </div>
+						<?php  }  ?>	
                             <div id='suksesupdate' class="alert alert-success alert-block fade in" style='display:none;'>
                                <h4>
                                     <i class="icon-ok-sign"></i>
@@ -37,7 +70,8 @@
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-                                            <a class="btn sub-btn" disabled href="#">Current Plan</a>
+											<?php if($current_plan == "27"){ $status1 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" <?php echo $firstblock; ?> href="#"><?php echo $status1; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -57,7 +91,8 @@
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-                                            <a class="btn sub-btn" href="#">Upgrade  Now</a>
+											<?php if($current_plan == "28"){ $status2 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" <?php echo $secondblock; ?> href="#"><?php echo $status2; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -78,7 +113,8 @@
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-                                            <a class="btn sub-btn" href="#">Upgrade Now</a>
+											<?php if($current_plan == "29"){ $status3 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" <?php echo $thirdblock; ?> href="#"><?php echo $status3; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -100,7 +136,8 @@
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-                                            <a class="btn sub-btn" href="#">Upgrade Now</a>
+											<?php if($current_plan == "30"){ $status4 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" <?php echo $fourthblock; ?> href="#"><?php echo $status4; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
