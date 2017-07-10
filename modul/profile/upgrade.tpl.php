@@ -70,8 +70,8 @@ if($current_plan == "30"){
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-											<?php if($current_plan == "27"){ $status1 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" <?php echo $firstblock; ?> href="#"><?php echo $status1; ?></a>
+						<?php if($current_plan == "27"){ $status1 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $firstblock; ?> href="#"><?php echo $status1; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -91,8 +91,8 @@ if($current_plan == "30"){
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-											<?php if($current_plan == "28"){ $status2 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" <?php echo $secondblock; ?> href="#"><?php echo $status2; ?></a>
+					    <?php if($current_plan == "28"){ $status2 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $secondblock; ?> href="#"><?php echo $status2; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -113,8 +113,8 @@ if($current_plan == "30"){
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-											<?php if($current_plan == "29"){ $status3 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" <?php echo $thirdblock; ?> href="#"><?php echo $status3; ?></a>
+					   <?php if($current_plan == "29"){ $status3 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $thirdblock; ?> href="#"><?php echo $status3; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -136,8 +136,8 @@ if($current_plan == "30"){
                                             <p class="p-tax">All inclusive</p><!--p-tax close-->
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
-											<?php if($current_plan == "30"){ $status4 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" <?php echo $fourthblock; ?> href="#"><?php echo $status4; ?></a>
+                                            <?php if($current_plan == "30"){ $status4 = "Current Plan"; } ?>
+                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $fourthblock; ?> href="#"><?php echo $status4; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -148,3 +148,27 @@ if($current_plan == "30"){
                     </section>
                 </div>
             </div>
+<!-- Modal -->
+  <div class="modal fade" id="upgrade" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Upgrade Package</h4>
+        </div>
+        <div class="modal-body">
+            <div>
+                <lable>Enter your 6 Digit Secure Pin Number</lable>
+                <input class="form-control " id="newpin" name="newpin" type="password" required="">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="btn btn-success" />
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

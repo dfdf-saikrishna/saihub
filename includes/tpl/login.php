@@ -44,7 +44,8 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <a href="#"  class="btn btn-primary btn-block btn-flat" id="login">Sign In</a>
+                            <input type="submit"id="login" class="btn btn-primary btn-block btn-flat" value="Sign In">
+                            <!--a href="#"  class="btn btn-primary btn-block btn-flat" id="login">Sign In</a-->
                             <a href="/forgot-password"  class="btn btn-danger btn-block btn-flat">Forgot Password ?</a>
                         </div><!-- /.col -->
                     </div>

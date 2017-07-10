@@ -1135,10 +1135,9 @@ footer.sticky-footer {
 }
 
 .state-info .panel .summary span {
-    color: #49586e;
+    color: #888;
     font-size: 13px;
     font-weight: normal;
-    text-transform: uppercase;
 }
 
 .state-info .panel .summary h3 {
