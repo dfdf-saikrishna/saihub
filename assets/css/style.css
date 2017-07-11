@@ -8,6 +8,7 @@ Author: ThemeBucket
 @import url('bootstrap-reset.css');
 @import url('jquery-ui-1.10.3.css');
 @import url('../fonts/css/font-awesome.min.css');
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 body {
     background: #424f63;
@@ -4758,3 +4759,38 @@ p.p-tax { font-size:18px;text-align: center;text-transform: capitalize;}
 .sub-btn {background: #424f63;color: #fff;border-radius: 0px;padding: 5px 8px;}
 .sub-btn:hover, .sub-btn:focus { color:#fff; text-decoration:none;}
 /* Upgrade table */
+
+
+label { font-size: 18px; }
+input[type=radio].with-font {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+    
+input[type=radio].with-font ~ label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f1db";
+    letter-spacing: 10px;
+    font-size: 1.2em;
+    color: #535353;
+    width: 1.4em;
+}
+
+input[type=radio].with-font:checked ~ label:before {
+    content: "\f00c";
+    font-size: 1.2em;
+    color: darkgreen;
+    letter-spacing: 5px;
+}
+input[type=radio].with-font:focus ~ label:before,
+input[type=radio].with-font:focus ~ label
+{                
+    color: green;
+}

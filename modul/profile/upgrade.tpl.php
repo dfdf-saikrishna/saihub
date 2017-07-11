@@ -22,6 +22,7 @@ if($current_plan == "30"){
 	$fourthblock = "disabled";
 }
 ?>
+
 <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
@@ -159,6 +160,21 @@ if($current_plan == "30"){
           <h4 class="modal-title">Upgrade Package</h4>
         </div>
         <div class="modal-body">
+            
+              
+
+            <div class="col-md-6">
+                <input id="question1" name="question" type="radio" checked="checked" class=" radio with-font" value="sel" />
+                <label for="question1">Full Payment</label>
+            </div>
+            <div>
+                <input id="question2" name="question" type="radio" class="with-font" value="sel"/>
+                <label for="question2">Partial Payment</label>
+                <div>
+  
+                
+                <div><hr /></div>
+    
             <div>
                 <lable>Enter your 6 Digit Secure Pin Number</lable>
                 <input class="form-control " id="newpin" name="newpin" type="password" required="">
@@ -172,3 +188,5 @@ if($current_plan == "30"){
       
     </div>
   </div>
+
+
