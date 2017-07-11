@@ -191,6 +191,27 @@ function the_profile() {
             return new Response('Failed', 201);
         }
     });
+	$app->post('/profile/upgrade', function (Request $request) {
+		global $db;
+		$pin = $request->get('pin');
+		$uid = $_SESSION["uid"];
+		$db->bind("uid", $_SESSION["uid"]);
+		$amount = $request->get('amount');
+		$product = $request->get('product');
+		$amount = "-" . $amount;
+		//$db->bind("amount", $amount);
+		$db->bind("pin",md5($pin));
+		$profile = $db->query("SELECT * FROM user_id WHERE uid=:uid AND pin = :pin");
+		
+		if(count($profile)>0){
+			$row = $db->query("INSERT INTO fund_transaction(type,nominal,details,from_id,to_id,date) VALUES('10','$amount','upgrade','0','$uid',NOW())");
+			$row = $db->query("UPDATE user_id SET product = '$product' WHERE uid = '$uid'");
+			return new Response('Success', 200);
+		}else{
+			return new Response('Failed', 201);
+		}
+		
+    });
     $app->get('/profile/chpwd', function() {
         global $hooks;
         if ((!isset($_SESSION["tokenpwd"]) || $_SESSION["tokenpwd"] == "") || $_GET["resend"] == "1") {

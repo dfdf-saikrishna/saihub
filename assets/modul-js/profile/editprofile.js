@@ -50,6 +50,60 @@ var Script = function () {
         // validate the comment form when it is submitted
         $("#editForm").validate();
     });
+	
+	// Hide or show Payment Details in Upgrade
+	$('body').on('click', '.upgrade', function() {
+	var amount = $(this).attr("amount");
+	var product = $(this).attr("product");
+	$("#submit-upgrade").attr("amount", amount);
+	$("#submit-upgrade").attr("product", product);
+	if(amount>=1000){
+		$('#payment-div').show();
+	}
+	else{
+		$('#payment-div').hide();
+	}
+
+	});
+	
+	// Upgrade Action
+	$('body').on('click', '#submit-upgrade', function() {
+	var pin = $('#pinverify').val();
+	var amount = $(this).attr("amount");
+	var product = $(this).attr("product");
+	var dataString = 'pin=' + pin + '&amount=' + amount + '&product=' + product;
+	$.ajax({
+                type: "POST",
+                url: "/profile/upgrade",
+                data: dataString,
+                cache: false,
+                beforeSend: function () {
+                    $("#status").html('<p>Connecting to server....</p>');
+                },
+                complete: function (e, xhr, settings) {
+					console.log(e);
+                    if (e.status === 200) {
+						$('#successupgrade').show();
+                        //$("#status").html("<span style='color: #00CC96;'>Success:</span> Redirecting to dashboard ");
+                        // TRIGGER SETELAH SUKSES NANTI DISINI, BISA BERUPA DIRECT KE DASHBOARD
+                        setTimeout(function () {
+                            //window.location.href = "/dashboard"; // The URL that will be redirected too.
+							$('#upgrade').modal('hide');
+							location.reload();
+                        }, 3000);
+                    } else {
+                        //Shake animation effect.
+						$('#failureupgrade').show();
+					    setTimeout(function () {
+							//window.location.href = "/dashboard"; // The URL that will be redirected too.
+							$('#failureupgrade').fadeOut();
+						}, 3000);
+                    }
+                }
+
+            });
+
+	});
 
 
 }();

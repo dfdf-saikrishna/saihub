@@ -72,7 +72,7 @@ if($current_plan == "30"){
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
 						<?php if($current_plan == "27"){ $status1 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $firstblock; ?> href="#"><?php echo $status1; ?></a>
+                                            <a class="btn sub-btn upgrade" data-toggle="modal" product="27" amount="100" data-target="#upgrade" <?php echo $firstblock; ?> href="#"><?php echo $status1; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -93,7 +93,7 @@ if($current_plan == "30"){
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
 					    <?php if($current_plan == "28"){ $status2 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $secondblock; ?> href="#"><?php echo $status2; ?></a>
+                                            <a class="btn sub-btn upgrade" data-toggle="modal" product="28" amount="500" data-target="#upgrade" <?php echo $secondblock; ?> href="#"><?php echo $status2; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -115,7 +115,7 @@ if($current_plan == "30"){
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
 					   <?php if($current_plan == "29"){ $status3 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $thirdblock; ?> href="#"><?php echo $status3; ?></a>
+                                            <a class="btn sub-btn upgrade" data-toggle="modal" product="29" amount="1000" data-target="#upgrade" <?php echo $thirdblock; ?> href="#"><?php echo $status3; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -138,7 +138,7 @@ if($current_plan == "30"){
                                         </div><!--panel-body text-center close-->
                                         <div class="panel-footer">
                                             <?php if($current_plan == "30"){ $status4 = "Current Plan"; } ?>
-                                            <a class="btn sub-btn" data-toggle="modal" data-target="#upgrade" <?php echo $fourthblock; ?> href="#"><?php echo $status4; ?></a>
+                                            <a class="btn sub-btn upgrade" data-toggle="modal" amount="1500" product="30" data-target="#upgrade" <?php echo $fourthblock; ?> href="#"><?php echo $status4; ?></a>
                                         </div>
                                     </div><!--panel panel-pricing close-->
                                 </div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
@@ -160,28 +160,41 @@ if($current_plan == "30"){
           <h4 class="modal-title">Upgrade Package</h4>
         </div>
         <div class="modal-body">
-            
+            <div id='successupgrade' class="alert alert-success alert-block fade in" style='display:none;'>
+			   <h4>
+					<i class="icon-ok-sign"></i>
+					Success!
+				</h4>
+				<p>User Upgrade Successful</p>
+			</div>
+			<div id='failureupgrade' class="alert alert-danger alert-block fade in" style='display:none;'>
+			   <h4>
+					<i class="icon-ok-sign"></i>
+					Failure!
+				</h4>
+				<p>User Upgrade Failure Please Check Your Pin and Ensure You have Sufficient Funds</p>
+			</div>
               
-
+			<div id="payment-div">
             <div class="col-md-6">
-                <input id="question1" name="question" type="radio" checked="checked" class=" radio with-font" value="sel" />
+                <input id="question1" name="question" type="radio" checked="checked" class=" radio with-font" value="full" />
                 <label for="question1">Full Payment</label>
             </div>
             <div>
-                <input id="question2" name="question" type="radio" class="with-font" value="sel"/>
+                <input id="question2" name="question" type="radio" class="with-font" value="part"/>
                 <label for="question2">Partial Payment</label>
-                <div>
-  
+                </div>
+			
                 
-                <div><hr /></div>
+                <div><hr /></div></div>
     
             <div>
                 <lable>Enter your 6 Digit Secure Pin Number</lable>
-                <input class="form-control " id="newpin" name="newpin" type="password" required="">
+                <input class="form-control " id="pinverify" name="pinverify" type="password" required="">
             </div>
         </div>
         <div class="modal-footer">
-            <input type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="btn btn-success" />
+            <input type="button" name="btn" value="Submit" id="submit-upgrade" data-toggle="modal" data-target="#confirm-submit" class="btn btn-success" />
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
