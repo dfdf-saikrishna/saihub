@@ -111,3 +111,11 @@ var Script = function () {
 
 
 }();
+
+
+function paymentmsg(){
+ $('#paymentmsg').show();
+}
+function paymentmsghide(){
+  $('#paymentmsg').hide();
+}
