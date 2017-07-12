@@ -193,18 +193,43 @@ function the_profile() {
     });
 	$app->post('/profile/upgrade', function (Request $request) {
 		global $db;
+		//-----------------------------------------------------------------//
+		 // Get The register fund
+		$db->bind("from_id", $_SESSION["uid"]);
+		$db->bind("to_id", $_SESSION["uid"]);
+		$available = $db->query("SELECT SUM(nominal) as funds FROM fund_transaction WHERE (type = 2 AND from_id = :from_id) OR (type = 10 AND to_id = :to_id);");
+		// Register Fund Terpakai
+		$db->bind("from_id", $_SESSION["uid"]);
+		$used = $db->query("SELECT SUM(nominal) as funds FROM fund_transaction WHERE (type = 9 OR type = 10) AND from_id = :from_id;");
+		$registerfund = $available[0]["funds"] - $used[0]["funds"];
+		//return $registerfund;
+		//------------------------------------------------------------------//
+		
 		$pin = $request->get('pin');
 		$uid = $_SESSION["uid"];
 		$db->bind("uid", $_SESSION["uid"]);
 		$amount = $request->get('amount');
 		$product = $request->get('product');
+		$pay = $request->get('pay');
+		if($pay == "partial"){
+			$cal = $amount/2;
+			if($registerfund<$cal)
+			return new Response('Failed', 201);
+			$partial = "-" . $amount/2;
+		}
+		else{
+		if($registerfund<$amount)
+		return new Response('Failed', 201);
 		$amount = "-" . $amount;
+		}
 		//$db->bind("amount", $amount);
 		$db->bind("pin",md5($pin));
 		$profile = $db->query("SELECT * FROM user_id WHERE uid=:uid AND pin = :pin");
 		
 		if(count($profile)>0){
-			$row = $db->query("INSERT INTO fund_transaction(type,nominal,details,from_id,to_id,date) VALUES('10','$amount','upgrade','0','$uid',NOW())");
+			$row = $db->query("INSERT INTO fund_transaction(type,nominal,details,from_id,to_id,date) VALUES('10','$partial','upgrade','0','$uid',NOW())");
+			if($pay = "partial")
+			$row = $db->query("INSERT INTO fund_transaction(type,nominal,details,from_id,to_id,date) VALUES('9','$partial','upgrade','0','$uid',NOW())");
 			$row = $db->query("UPDATE user_id SET product = '$product' WHERE uid = '$uid'");
 			return new Response('Success', 200);
 		}else{

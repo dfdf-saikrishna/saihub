@@ -177,12 +177,12 @@ if($current_plan == "30"){
               
 			<div id="payment-div">
             <div class="col-md-6">
-                <input id="question1" name="question" type="radio" checked="checked" class=" radio with-font" value="full" />
-                <label for="question1">Full Payment</label>
+                <input id="pay1" name="question" type="radio" checked="checked" class=" radio with-font"/>
+                <label for="pay1">Full Payment</label>
             </div>
             <div>
-                <input id="question2" name="question" type="radio" class="with-font" value="part"/>
-                <label for="question2">Partial Payment</label>
+                <input id="pay2" name="question" type="radio" class="with-font"/>
+                <label for="pay2">Partial Payment</label>
                 </div>
 			
                 

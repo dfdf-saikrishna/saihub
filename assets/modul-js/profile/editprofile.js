@@ -71,7 +71,11 @@ var Script = function () {
 	var pin = $('#pinverify').val();
 	var amount = $(this).attr("amount");
 	var product = $(this).attr("product");
-	var dataString = 'pin=' + pin + '&amount=' + amount + '&product=' + product;
+	var pay = "";
+	if($('#pay2').attr('checked')){
+		var pay = "partial";
+	}
+	var dataString = 'pin=' + pin + '&amount=' + amount + '&product=' + product+ '&pay=' + pay;
 	$.ajax({
                 type: "POST",
                 url: "/profile/upgrade",
