@@ -149,7 +149,7 @@ function downline_registration() {
                 $bonus = ($persen / 100) * $harga;
                 // Record the bonus to db
                 //$tembakbonus = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'6',:bonus,:fromx,:infox,:tox)", array("bonus" => $bonus, "fromx" => "0", "infox" => "BONUS FOR USERNAME <b>" . strtoupper($uname) . "</b> REGISTRATION", "tox" => $_SESSION["uid"]));
-                if ($userDetRec && $userBankRec && $userGenRec && $userFeeRec && $userInitRec && $tembakbonus) {
+                if ($userDetRec && $userBankRec && $userGenRec && $userFeeRec && $userInitRec) {
                     // Email
                     // Konfigurasi Pesan Email
                     $pesan = "Thankyou for your registration to us. </br></br>";
@@ -159,8 +159,15 @@ function downline_registration() {
                     $pesan .= "<br>JOIN VALUE : <strong>" . packageName($pid) . " - $" . packagePrice($pid) . "</strong></br>";
                     $pesan .= "<br>SPONSORED BY : <strong>" . strtoupper(getUname($_SESSION["uid"])) . "</strong></br>";
                     $pesan .= "<br>UPLINE : <strong>" . strtoupper(getUname($position)) . "</strong></br>";
-                    // Kirim Email
-                    sendMail($email, $pesan, "WELCOME TO GOLDMONTINT");
+					//Send Message
+					$message = "Thank you for registering with mysaiworld.org, Your Registration is successful.
+					Username: ".$uname."
+					Password : ".$pass." 
+					Login to mysaiworld.org";
+					$message = urlencode($message);
+					sendMessage($mobile,$message);
+					// Kirim Email
+                    sendMail($email, $pesan, "WELCOME TO MySaiWorld");
                     return new Response("SUCCESS", 200);
                 } else {
                     return new Response('FAILED', 200);
