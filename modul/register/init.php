@@ -162,7 +162,7 @@ function downline_registration() {
 					//Send Message
 					$message = "Thank you for registering with mysaiworld.org, Your Registration is successful.
 					Username: ".$uname."
-					Password : ".$pass." 
+					Password : ".$pass."
 					Login to mysaiworld.org";
 					$message = urlencode($message);
 					sendMessage($mobile,$message);
