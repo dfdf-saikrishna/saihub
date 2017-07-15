@@ -61,13 +61,13 @@ function theTree($array){
         foreach ($array as $key => $value) {
             $list .= "<li data-id='".$value."' class='subx'><a href='#'><div class='tree-user'>";
             $list .= "<h3><i class='fa fa-sitemap'></i> ".strtoupper(get_data($value, "uname"))."</h3>";
-            $list .= "<p>Investation : $".theInvest($value)."</p>";
+            $list .= "<p>Donation : $".theInvest($value)."</p>";
             $list .= "<div class='col-md-12 nodes-info'>
                                         <div class='col-md-3'>
                                          ".  countNodes($value, 'left')."
                                         </div>
                                         <div class='col-md-6 midx'>
-                                             Nodes
+                                             Downlines
                                         </div>
                                         <div class='col-md-3'>
                                             ".  countNodes($value, 'right')."
@@ -76,11 +76,11 @@ function theTree($array){
                                     </div>";
             $list .= " <div class='col-md-12 invest-info'>
                                         <div class='col-md-6 linfest'>
-                                            <strong>Invest</strong><br>
+                                            <strong>Donation</strong><br>
                                          $".countInvest($value,"left")."
                                         </div>
                                         <div class='col-md-6 rinfest'>
-                                            <strong>Invest</strong><br>
+                                            <strong>Donation</strong><br>
                                             $".countInvest($value,"right")."
                                         </div>
                                         <div class='clearfix'></div>

@@ -14,14 +14,14 @@
                                     <h3><i class='fa fa-star'></i> <?php echo strtoupper($_SESSION["uname"]); ?></h3>
                                     <?php if($_SESSION["role"]=="1"){ ?>
                                     <p>
-                                        Investation : $<?php echo theInvest($_SESSION["uid"]); ?>
+                                        Donations : $<?php echo theInvest($_SESSION["uid"]); ?>
                                     </p>
                                     <div class='col-md-12 nodes-info'>
                                         <div class='col-md-3'>
                                           <?php echo countNodes($_SESSION["uid"],"left"); ?>
                                         </div>
                                         <div class='col-md-6 midx'>
-                                             Nodes
+                                            Downlines
                                         </div>
                                         <div class='col-md-3'>
                                              <?php echo countNodes($_SESSION["uid"],"right"); ?>
@@ -30,11 +30,11 @@
                                     </div>  
                                     <div class='col-md-12 invest-info'>
                                         <div class='col-md-6 linfest'>
-                                            <strong>Left Invest</strong><br>
+                                            <strong>Left Donation</strong><br>
                                           $<?php echo countInvest($_SESSION["uid"],"left"); ?>
                                         </div>
                                         <div class='col-md-6 rinfest'>
-                                            <strong>Right Invest</strong><br>
+                                            <strong>Right Donation</strong><br>
                                              $<?php echo countInvest($_SESSION["uid"],"right"); ?>
                                         </div>
                                         <div class='clearfix'></div>
