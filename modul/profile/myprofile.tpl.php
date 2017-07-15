@@ -59,9 +59,9 @@
                                 <div class="panel-body p-states">
                                     <div class="summary pull-left">
                                         <h4>Package <span>Information</span></h4>
-                                        <span>Which product you currenty subscribe</span>
+                                        <!--span>Which product you currenty subscribe</span-->
                                         <h3 style='margin-bottom: 10px;border-bottom: 2px solid #F5F5F5;padding-bottom: 10px;'><?php echo getActiveProduct($_SESSION["uid"], "product_name"); ?></h3>
-                                         <ul class="p-info">
+                                         <!--ul class="p-info">
                                             <li>
                                                 <div class="title">Deviden Rate</div>
                                                 <div class="desk"><?php echo getActiveProduct($_SESSION["uid"], "devident_rate"); ?> (%)</div>
@@ -78,7 +78,7 @@
                                                 <div class="title">Reward ?</div>
                                                 <div class="desk"><?php echo (getActiveProduct($_SESSION["uid"], "reward") == "1" ? "YES" : "NO"); ?></div>
                                             </li>
-                                         </ul>
+                                         </ul-->
                                     </div>
                                     <div id="expense" class="chart-bar"></div>
                                 </div>

@@ -81,6 +81,7 @@ function downline_registration() {
         $fname = $request->get('fname');
         $lname = $request->get('lname');
         $gender = $request->get('gender');
+        $prefix = $request->get('prefix');
         $mobile = $request->get('mobile');
         $phone = $request->get('phone');
         $address = $request->get('address');
@@ -115,7 +116,7 @@ function downline_registration() {
                 $db->bind("lname", $lname);
                 $db->bind("gender", $gender);
                 $db->bind("email", $email);
-                $db->bind("mobile", $mobile);
+                $db->bind("mobile", $prefix . $mobile);
                 $db->bind("phone", $phone);
                 $db->bind("state", $state);
                 $db->bind("city", $city);
@@ -177,6 +178,7 @@ function downline_registration() {
     });
     // End Handler
     $app->get('/register-account', function() {
+       
         global $hooks;
         $hooks->add_action('global_css', "dreg_css");
         $hooks->add_action('global_js', "dreg_js");

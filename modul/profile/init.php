@@ -92,16 +92,16 @@ function menu_profile() {
                 "url" => "/profile/chpin",
                 "icon" => "fa fa-puzzle-piece",
             ),
-            array(
+           /* array(
                 "label" => "DOWNLOAD CERTIFICATE",
-                "url" => "/profile/certificate",
+                "url" => "#",
                 "icon" => "fa fa-download",
             ),
             array(
                 "label" => "DOWNLOAD PLAN",
-                "url" => "/download/PLAN.pptx",
+                "url" => "#",
                 "icon" => "fa fa-download",
-            )
+            )*/
         )
     );
     $menu_array[1] = $profilemenu;
