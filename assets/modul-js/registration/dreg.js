@@ -179,7 +179,11 @@ var Script = function () {
                     required: 'Last name is required'
                 },
                  prefix: {
+<<<<<<< HEAD
                     required: 'Select Country is Required!'
+=======
+                    required: 'First Select Country Code!'
+>>>>>>> d2d3690009a96ec99b71ae32bfaa684c9ee6328f
                 },
                  mobile: {
                     required: 'Mobile number is required!'

@@ -116,7 +116,7 @@ function downline_registration() {
                 $db->bind("lname", $lname);
                 $db->bind("gender", $gender);
                 $db->bind("email", $email);
-                $db->bind("mobile", $mobile);
+                $db->bind("mobile", $prefix . $mobile);
                 $db->bind("phone", $phone);
                 $db->bind("state", $state);
                 $db->bind("city", $city);

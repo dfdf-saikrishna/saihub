@@ -106,9 +106,20 @@
                                     </div>									
                                     <div class="form-group">
                                     <label class="col-sm-2 control-label">Mobile</label>
+<<<<<<< HEAD
                                     <div class="col-sm-10">
 										<span class="help-inline">Please enter your mobile number with country code example : 60, 91</span>
 										<input type="text" id="mobile" name="mobile" placeholder="" class="form-control" >
+=======
+                                        <div class="col-sm-2 form-group">
+                                            <select class="form-control" id="prefix" name="prefix" required>
+                                                <option value="60">+ 60</option>
+                                                <option value="91">+ 91</option>
+                                            </select>
+                                        </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="mobile" name="mobile" placeholder="" class="form-control" >
+>>>>>>> d2d3690009a96ec99b71ae32bfaa684c9ee6328f
                                         
                                     </div>
                                     </div>
