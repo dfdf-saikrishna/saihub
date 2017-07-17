@@ -108,8 +108,8 @@
                                     <label class="col-sm-2 control-label">Mobile</label>
 <<<<<<< HEAD
                                     <div class="col-sm-10">
-										<span class="help-inline">Please enter your mobile number with country code example : 60, 91</span>
-										<input type="text" id="mobile" name="mobile" placeholder="" class="form-control" >
+										<span class="help-inline">Please enter your mobile number with country code example : +60, +91</span>
+										<input type="text" id="mobile" name="mobile" placeholder="+60123456789" class="form-control" >
 =======
                                         <div class="col-sm-2 form-group">
                                             <select class="form-control" id="prefix" name="prefix" required>
