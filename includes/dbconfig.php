@@ -2,5 +2,5 @@
 [SQL]
 host = localhost
 user = root
-password = 
-dbname = saihub
+password = Kalyan1509
+dbname = Sai_World

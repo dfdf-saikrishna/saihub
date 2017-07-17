@@ -42,7 +42,7 @@
                                         <label for="types" class="control-label col-lg-2">Which Funds ?</label>
                                         <div class="col-lg-10">
                                             <select id="types" name="types" class="form-control">
-                                                <option value="fund">NORMAL FUNDS</option>
+                                                <option value="fund">EWALLET FUNDS</option>
                                                 <option value="reg">REGISTER FUNDS</option>
                                             </select>
                                         </div>

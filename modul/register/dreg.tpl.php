@@ -92,11 +92,23 @@
                                         <input type="text" id="beneficiary" name="beneficiary" placeholder="" class="form-control" >
                                         <span class="help-inline"></span>
                                     </div>
-                                    </div>          
+                                    </div>      
+									<div class="form-group">
+                                    <label class="col-sm-2 control-label">Country (required)</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="prefix" name="prefix" required>
+												 <option></option>
+											   <option value="60">Malaysia</option>
+                                                <option value="91">India</option>
+                                            </select>
+                                        
+                                    </div>
+                                    </div>									
                                     <div class="form-group">
                                     <label class="col-sm-2 control-label">Mobile</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="mobile" name="mobile" placeholder="" class="form-control" >
+										<span class="help-inline">Please enter your mobile number with country code example : 60, 91</span>
+										<input type="text" id="mobile" name="mobile" placeholder="" class="form-control" >
                                         
                                     </div>
                                     </div>
@@ -146,31 +158,31 @@
                                              <div class="form-group ">
                                         <label for="bank_name" class="control-label col-lg-2">Bank Name</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " name="bank_name" id="bank_name" type="text" required/>
+                                            <input class="form-control " name="bank_name" id="bank_name" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="branchname" class="control-label col-lg-2">Branch Name</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " name="branchname" id="branchname" type="text" required/>
+                                            <input class="form-control " name="branchname" id="branchname" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="holder" class="control-label col-lg-2">Holder Name</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " name="holder" id="holder" type="text" required/>
+                                            <input class="form-control " name="holder" id="holder" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="acnumber" class="control-label col-lg-2">Account Number</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " name="acnumber" id="acnumber" type="text" required/>
+                                            <input class="form-control " name="acnumber" id="acnumber" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="swiftcode" class="control-label col-lg-2">Swift Code</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " name="swiftcode" id="swiftcode" type="text" required/>
+                                            <input class="form-control " name="swiftcode" id="swiftcode" type="text"/>
                                         </div>
                                     </div>
                                         </fieldset>

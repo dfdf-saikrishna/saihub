@@ -34,7 +34,7 @@ function devident_js(){ ?>
 }
 function withdraw_title(){
     echo "Withdraw your balance";
-}*/
+}
 function menu_devident(){
    global $menu_array;
     $devidentmenu = array(
@@ -43,7 +43,7 @@ function menu_devident(){
         "icon" => "fa fa-book"
     );
     $menu_array[4]=$devidentmenu;
-}
+}*/
 function the_devident(){
 global $app;    
 

@@ -26,7 +26,16 @@ function sendMail($to, $message, $subject)
 }
 
 function sendMessage($mobile,$message){
-    $url = 'http://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=hdTb8Yd4woA&MobileNo='.$mobile.'&SenderID=TESTIN&Message='.$message.'&ServiceName=TEMPLATE_BASED';
+    $url = 'http://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=hdTb8Yd4woA&MobileNo='.$mobile.'&SenderID=MYSAIW&Message='.$message.'&ServiceName=TEMPLATE_BASED';
+	$ch=curl_init();
+	curl_setopt($ch,CURLOPT_URL,$url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$output =curl_exec($ch);
+	curl_close($ch);
+}
+
+function sendMessageI($mobile,$message){
+    $url = 'http://smsapi.24x7sms.com/api_2.0/SendSMS.aspx?APIKEY=hdTb8Yd4woA&MobileNo='.$mobile.'&SenderID=MYSAIW&Message='.$message.'&ServiceName=INTERNATIONAL';
 	$ch=curl_init();
 	curl_setopt($ch,CURLOPT_URL,$url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);

@@ -96,7 +96,7 @@ global $menu_array;
                         <section class="panel">
                             <div class="panel-body">
                                 <div class="summary">
-                                    <span>Register Funds</span>
+                                    <span>Register Wallet</span>
                                     <h3 class="red-txt"><?php echo ($_SESSION["role"] == "1" ? "$" . current_register_fund() : "UNLIMITED"); ?></h3>
                                 </div>
                                 <div id="income" class="chart-bar"></div>
@@ -105,7 +105,7 @@ global $menu_array;
                         <section class="panel">
                             <div class="panel-body">
                                 <div class="summary">
-                                    <span>Available Funds</span>
+                                    <span>E Wallet</span>
                                     <h3 class="green-txt"><?php echo ($_SESSION["role"] == "1" ? "$" . current_fund() : "UNLIMITED"); ?></h3>
                                 </div>
                                 <div id="expense" class="chart-bar"></div>
