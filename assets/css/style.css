@@ -4805,11 +4805,15 @@ color: red;
 }
 
 .cert-content{
-	position: absolute; top: 700px; font-size:24px; text-align: center; display: block;  font-weight: bold; width: 87%; padding:0px 100px; color: #333; font-family: serif;	line-height:60px;
+	position: absolute; top: 700px; font-size:24px; text-align: center; display: block;  font-weight: bold; width: 960px; padding:0px 100px; color: #333; font-family: serif;	line-height:60px;
 	
 }
 .cert-content>strong
 {
 	color:red;
+	text-decoration:underline;
+}
+.cert-content>b
+{
 	text-decoration:underline;
 }
