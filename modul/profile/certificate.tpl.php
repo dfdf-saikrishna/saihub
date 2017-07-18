@@ -7,12 +7,12 @@
                         <div class="panel-body" height="600px">
 						<div><img src=".\..\assets\images\certificate.jpg" width="980px"></div>
 						<!-- Serial No -->
-						<div style="position: absolute; top: 638px; left: 650px; font-size: 20px; text-align: center; display: block; font-weight: bold; width: 300px; font-family: serif; color: red;">
-						<strong>00001</strong>
+						<div style="position: absolute; top: 638px; left: 660px; font-size: 20px; text-align: center; display: block; font-weight: bold; width: 300px; font-family: serif; color: #f00;">
+						<strong>0000001</strong>
 						</div>
 						
 						<!-- Full name -->
-						<div style=" position: absolute; top: 750px; left: 350px; font-size:16px; text-align: center; display: block; font-weight: bold; width: 300px;   HEIGHT: 30PX;     color: red;
+						<div style=" position: absolute; top: 750px; left: 350px; font-size:20px; text-align: center; display: block; font-weight: bold; width: 300px;   HEIGHT: 30PX;     color: #333;
     font-family: serif;">
 						<strong>Dodda kalyan Yadav</strong>
 						</div>
