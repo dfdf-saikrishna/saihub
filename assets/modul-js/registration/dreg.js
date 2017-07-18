@@ -5,7 +5,7 @@ var Script = function () {
 
     $.validator.setDefaults({
         submitHandler: function() { 
-            
+           
             var dataString = $('#stepy_form').serialize();
            
              $.ajax({
@@ -103,6 +103,12 @@ var Script = function () {
                 fname: {
                     required: true
                 },
+                prefix: {
+                    required: true
+                },
+                mobile: {
+                    required: true
+                },
                 lname : {
                     required: true
                 },
@@ -125,10 +131,10 @@ var Script = function () {
                 country: {
                     required: true
                 },
-                bank_name: {
+               /* bank_name: {
                     minlength:3,
                     required: true
-                },
+                }, 
                 branchname: {
                     minlength:3,
                     required: true
@@ -144,7 +150,7 @@ var Script = function () {
                 },
                 swiftcode: {
                     required: true
-                },
+                },*/
                 'email': 'required'
             },
             messages: {
@@ -171,6 +177,12 @@ var Script = function () {
                 },
                 lname : {
                     required: 'Last name is required'
+                },
+                 prefix: {
+                    required: 'Select Country is Required!'
+                },
+                 mobile: {
+                    required: 'Mobile number is required!'
                 },
                 gender : {
                     required: 'Gender is required'
@@ -201,7 +213,7 @@ var Script = function () {
                     required: "Please select join value",
                     remote: "You have insufficient register funds! Select other join value!"
                 },
-                 bank_name: {
+                /* bank_name: {
                     minlength:"Your bank name must be at least 3 character",
                     required: "Please fill your bank name information"
                 },
@@ -220,7 +232,7 @@ var Script = function () {
                 },
                 swiftcode: {
                     required: "Please fill your swiftcode information"
-                },
+                },*/
             }
         });
     });

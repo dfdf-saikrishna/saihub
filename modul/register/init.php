@@ -81,6 +81,7 @@ function downline_registration() {
         $fname = $request->get('fname');
         $lname = $request->get('lname');
         $gender = $request->get('gender');
+        $prefix = $request->get('prefix');
         $mobile = $request->get('mobile');
         $phone = $request->get('phone');
         $address = $request->get('address');
@@ -142,14 +143,14 @@ function downline_registration() {
                 // Record member registration fee
                 $userFeeRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'9',:nom,:from,:notes,:to)", array("nom" => packagePrice($pid), "from" => $_SESSION["uid"], "notes" => "REGISTRATION FOR USERNAME :" . strtoupper($uname), "to" => "0"));
                 // Initial Point to new member
-                $userInitRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'1',:val,:dari,:info,:ke)", array("val" => packagePrice($pid), "dari" => "0", "info" => "INITIAL COIN REGISTRATION", "ke" => $uid));
+                //$userInitRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'1',:val,:dari,:info,:ke)", array("val" => packagePrice($pid), "dari" => "0", "info" => "INITIAL COIN REGISTRATION", "ke" => $uid));
                 // Bonus Sponsor
                 $persen = ($_SESSION["role"]!="0"?getActiveProduct($_SESSION["uid"], "referral_rate"):"0");
                 $harga = packagePrice($pid);
                 $bonus = ($persen / 100) * $harga;
                 // Record the bonus to db
                 //$tembakbonus = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'6',:bonus,:fromx,:infox,:tox)", array("bonus" => $bonus, "fromx" => "0", "infox" => "BONUS FOR USERNAME <b>" . strtoupper($uname) . "</b> REGISTRATION", "tox" => $_SESSION["uid"]));
-                if ($userDetRec && $userBankRec && $userGenRec && $userFeeRec && $userInitRec && $tembakbonus) {
+                if ($userDetRec && $userBankRec && $userGenRec) {
                     // Email
                     // Konfigurasi Pesan Email
                     $pesan = "Thankyou for your registration to us. </br></br>";
@@ -158,9 +159,16 @@ function downline_registration() {
                     $pesan .= "<br>PASSWORD : <strong>" . $pass . "</strong></br>";
                     $pesan .= "<br>JOIN VALUE : <strong>" . packageName($pid) . " - $" . packagePrice($pid) . "</strong></br>";
                     $pesan .= "<br>SPONSORED BY : <strong>" . strtoupper(getUname($_SESSION["uid"])) . "</strong></br>";
-                    $pesan .= "<br>UPLINE : <strong>" . strtoupper(getUname($position)) . "</strong></br>";
-                    // Kirim Email
-                    sendMail($email, $pesan, "WELCOME TO GOLDMONTINT");
+                    $pesan .= "<br>UPLINE : <strong>" . strtoupper(getUname($position)) . "</strong></br>"; 
+					//Send Message
+					$message = "Thank you for registering with mysaiworld.org, Your Registration is successful.\n Username: ".$uname."\n Password : ".$pass."\n Login to mysaiworld.org";
+					$message = urlencode($message);
+					if($prefix == '91')
+					sendMessage($mobile,$message);
+					else
+					sendMessageI($mobile,$message);
+					// Kirim Email
+                    sendMail($email, $pesan, "WELCOME TO MySaiWorld");
                     return new Response("SUCCESS", 200);
                 } else {
                     return new Response('FAILED', 200);
@@ -170,6 +178,7 @@ function downline_registration() {
     });
     // End Handler
     $app->get('/register-account', function() {
+       
         global $hooks;
         $hooks->add_action('global_css', "dreg_css");
         $hooks->add_action('global_js', "dreg_js");

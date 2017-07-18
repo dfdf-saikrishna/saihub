@@ -27,6 +27,10 @@ function chpin_title() {
     echo "Change PIN";
 }
 
+function certificate_title() {
+    echo "Download CERTIFICATE";
+}
+
 function chpin_js() {
     ?>
     <script type="text/javascript" src="/assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
@@ -52,6 +56,12 @@ function myprofile_js() {
     ?>
     <script src="/assets/js/footable/footable.js"></script>
     <script src="/assets/modul-js/profile/myprofile.js"></script>
+<?php }
+
+
+function certificate_js() {
+    ?>
+    <script src="/assets/modul-js/profile/certificate.js"></script>
 <?php }
 
 function myprofile_css() {
@@ -92,16 +102,17 @@ function menu_profile() {
                 "url" => "/profile/chpin",
                 "icon" => "fa fa-puzzle-piece",
             ),
-            array(
+           array(
                 "label" => "DOWNLOAD CERTIFICATE",
                 "url" => "/profile/certificate",
                 "icon" => "fa fa-download",
-            ),
+            )
+			/*	
             array(
                 "label" => "DOWNLOAD PLAN",
-                "url" => "/download/PLAN.pptx",
+                "url" => "#",
                 "icon" => "fa fa-download",
-            )
+            )*/
         )
     );
     $menu_array[1] = $profilemenu;
@@ -153,10 +164,10 @@ function the_profile() {
         return "";
     });
     $app->get('/profile/certificate', function() {
-        global $hooks;
+		global $hooks;
         //$hooks->add_action('global_css','myprofile_css');
-        $hooks->add_action('global_js', 'editprofile_js');
-        $hooks->add_action('the_title', "editprofile_title");
+        $hooks->add_action('global_js', 'certificate_js');
+        $hooks->add_action('the_title', "certificate_title");
         the_head();
         include 'certificate.tpl.php';
         the_footer();
@@ -286,7 +297,7 @@ function the_profile() {
                 $pesan .= "We've just noticed that you want to change your account PIN, its okay, <br>but you need to insert this secret token code due to our security system.";
                 $pesan .= "<br><br> YOUR ACCESS CODE TOKEN IS : <strong>" . $_SESSION["tokenpin"] . "</strong>";
                 // Kirim Email
-                sendMail("no-reply@goldmontint.com", getProfileData($_SESSION["uid"], "email"), $pesan, "PIN CHANGE TOKEN", "GOLDMONTINT.COM");
+                sendMail("no-reply@mysaiworld.org", getProfileData($_SESSION["uid"], "email"), $pesan, "PIN CHANGE TOKEN", "Mysaiworld.org");
             }
         }
 

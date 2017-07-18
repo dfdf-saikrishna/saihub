@@ -62,7 +62,7 @@ if($current_plan == "30"){
                                             <img src="http://mysaiworld.org/wp-content/uploads/2017/06/favicon.png" style="filter: brightness(0) invert(1);">
                                             <h3>USD 100</h3>
                                         </div><!--panel-heading close-->
-                                        <div class="panel-body text-center">
+                                        <div class="panel-body text-center" style="display:none">
                                             <p class="p-title">Subscription Duration</p><!--p-title close-->
                                             <p class="p-time">2 days - 30 Mins</p><!--p-time close-->
                                         </div><!--panel-body text-center close-->
@@ -83,7 +83,7 @@ if($current_plan == "30"){
                                             <img src="http://mysaiworld.org/wp-content/uploads/2017/06/favicon.png" style="filter: brightness(0) invert(1);">
                                             <h3>USD500</h3>
                                         </div><!--panel-heading close-->
-                                        <div class="panel-body text-center">
+                                        <div class="panel-body text-center" style="display:none">
                                             <p class="p-title">Subscription Duration</p><!--p-title close-->
                                             <p class="p-time">2 days - 30 Mins</p><!--p-time close-->
                                         </div><!--panel-body text-center close-->
@@ -105,7 +105,7 @@ if($current_plan == "30"){
                                             <img src="http://mysaiworld.org/wp-content/uploads/2017/06/favicon.png" style="filter: brightness(0) invert(1);">
                                             <h3>USD 1000</h3>
                                         </div><!--panel-heading close-->
-                                        <div class="panel-body text-center">
+                                        <div class="panel-body text-center" style="display:none">
                                             <p class="p-title">Subscription Duration</p><!--p-title close-->
                                             <p class="p-time">7 days - 90 Mins</p><!--p-time close-->
                                         </div><!--panel-body text-center close-->
@@ -128,7 +128,7 @@ if($current_plan == "30"){
                                              <img src="http://mysaiworld.org/wp-content/uploads/2017/06/favicon.png" style="filter: brightness(0) invert(1);">
                                             <h3>USD 1500</h3>
                                         </div><!--panel-heading close-->
-                                        <div class="panel-body text-center">
+                                        <div class="panel-body text-center" style="display:none">
                                             <p class="p-title">Subscription Duration</p><!--p-title close-->
                                             <p class="p-time">30 days - 250 Mins</p><!--p-time close-->
                                         </div><!--panel-body text-center close-->
@@ -177,15 +177,18 @@ if($current_plan == "30"){
               
 			<div id="payment-div">
             <div class="col-md-6">
-                <input id="pay1" name="question" type="radio" checked="checked" class=" radio with-font"/>
+                <input id="pay1" name="question" type="radio" checked="checked" class=" radio with-font" onclick="paymentmsghide();"/>
                 <label for="pay1">Full Payment</label>
             </div>
             <div>
-                <input id="pay2" name="question" type="radio" class="with-font"/>
+                <input id="pay2" name="question" type="radio" class="with-font" onclick="paymentmsg();"/>
                 <label for="pay2">Partial Payment</label>
                 </div>
 			
-                
+                            <div id="paymentmsg" style="display:none;" class="alert alert-success">
+                                <strong>50%</strong> of the amount will be Deducted From Register Wallet <br/>
+                                <strong>50%</strong> From the E-Wallet if E-wallet balance is less than E-wallet blance will be go under minus values.
+                            </div>
                 <div><hr /></div></div>
     
             <div>
@@ -201,5 +204,3 @@ if($current_plan == "30"){
       
     </div>
   </div>
-
-
