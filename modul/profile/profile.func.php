@@ -18,6 +18,19 @@ function pwdCorrect($pwd){
         return false;
     }
 }
+function getuserId(){
+	global $db;
+	$db->bind("uid",$_SESSION["uid"]);
+	$data = $db->query("SELECT * FROM user_id WHERE uid=:uid");
+	$product = $data[0]["product"];
+	$db->bind("product_id",$product);
+	$product = $db->query("SELECT * FROM product WHERE product_id=:product_id");
+	$db->bind("uid",$_SESSION["uid"]);
+	$userdetails = $db->query("SELECT * FROM user_detail WHERE uid=:uid");
+	$userdetails["product"] = $product;
+	$userdetails["user"] = $data;
+	return $userdetails;
+}
 function pinCorrect($pin){
     global $db;
     $db->bind("uid",$_SESSION["uid"]);
