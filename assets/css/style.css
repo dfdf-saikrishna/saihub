@@ -4794,3 +4794,22 @@ input[type=radio].with-font:focus ~ label
 {                
     color: green;
 }
+
+.cert-serial
+{
+position: absolute; top: 620px; left: 660px; font-size: 20px; text-align: center; display: block; font-weight: bold; width: 300px; font-family:serif; color: #333;
+}
+.cert-serial>strong
+{
+color: red;
+}
+
+.cert-content{
+	position: absolute; top: 700px; font-size:24px; text-align: center; display: block;  font-weight: bold; width: 87%; padding:0px 100px; color: #333; font-family: serif;	line-height:60px;
+	
+}
+.cert-content>strong
+{
+	color:red;
+	text-decoration:underline;
+}

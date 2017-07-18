@@ -5,34 +5,51 @@ $userId = getuserId();
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Download Certificate
+                            <a href="" class="btn btn-success"  onclick='printDiv();'>Print Certificate</a>
                         </header>
-                        <div class="panel-body" height="600px">
-						<div><img src=".\..\assets\images\certificate.jpg" width="980px"></div>
+                        <div class="panel-body" id="print-view">
+						<div class="alert alert-danger" style="display:none;">Please pay full amount to download or print the certificate</div>
+						<div><img src=".\..\assets\images\certificate.jpg" width="1000px"></div>
 						<!-- Serial No -->
-						<div style="position: absolute; top: 638px; left: 660px; font-size: 20px; text-align: center; display: block; font-weight: bold; width: 300px; font-family: serif; color: #f00;">
-						<strong><?php echo sprintf('%08d', $userId[0]['uid']); ?></strong>
+						<div class="cert-serial">
+						Serial No : <strong><?php echo sprintf('%08d', $userId[0]['uid']); ?></strong>
 						</div>
 						
 						<!-- Full name -->
-						<div style=" position: absolute; top: 750px; left: 350px; font-size:20px; text-align: center; display: block; font-weight: bold; width: 300px;   HEIGHT: 30PX;     color: #333;
-    font-family: serif;">
-						<strong><?php echo $userId[0]['first_name'] . " " . $userId[0]['last_name']; ?></strong>
-						</div>
-						
-						<!-- Donation Amount -->
-						<div style="position: absolute; top: 950px; left: 420px; font-size: 28px; text-align: center; display: block; font-weight: bold; width: 150px; height: 30PX; font-family: serif; color: #000;">
-						<strong><?php echo $userId["product"][0]["value"];?></strong>
-						</div>
-						
-						<!-- Joining Date -->
-						<div style="position: absolute; top: 950px; left: 650px; font-size: 20px; text-align: center; display: block; font-weight: bold;  height: 30PX; font-family: serif; color: #000;">
-						<strong><?php 
+						<div class="cert-content">
+	This is to certify that <strong>&nbsp;<?php echo $userId[0]['first_name'] . " " . $userId[0]['last_name']; ?> &nbsp;</strong> has donated one Shirdi Sai
+	Baba Statue succeeding the emplacement related services to </br>
+MYSAIWORLD PARK </br>
+subject to terms and conditions stipulated to this certificate,  </br>
+for the amount of $ <strong>&nbsp;<?php echo $userId["product"][0]["value"];?> &nbsp;</strong> on <strong>&nbsp;<?php 
 						$yrdata= strtotime($userId["user"][0]["register_date"]);
 						echo date('d M Y', $yrdata);
-						?></strong>
+						?>&nbsp;</strong>.
 						</div>
                         </div>
+						
+						<div style="display:none;">
+						
+						<div  id="print-cert" style="border:0px; display:none;">
+						<div><img src=".\..\assets\images\certificate.jpg" width="1000px"></div>
+						<!-- Serial No -->
+						<div style="position: absolute; top: 600px; left: 660px; font-size: 20px; text-align: center; display: block; font-weight: bold; width: 300px; font-family:serif; color: #333;">
+						Serial No : <strong><?php echo sprintf('%08d', $userId[0]['uid']); ?></strong>
+						</div>
+						
+						<!-- Full name -->
+						<div style="position: absolute; top: 650px; font-size:24px; text-align: center; display: block;  font-weight: bold; width:80%; padding:0px 150px; color: #333; font-family: serif;	line-height:60px;">
+	This is to certify that <strong>&nbsp;<?php echo $userId[0]['first_name'] . " " . $userId[0]['last_name']; ?> &nbsp;</strong> has donated one Shirdi Sai
+	Baba Statue succeeding the emplacement related services to </br>
+MYSAIWORLD PARK </br>
+subject to terms and conditions stipulated to this certificate,  </br>
+for the amount of $ <strong>&nbsp;<?php echo $userId["product"][0]["value"];?> &nbsp;</strong> on <strong>&nbsp;<?php 
+						$yrdata= strtotime($userId["user"][0]["register_date"]);
+						echo date('d M Y', $yrdata);
+						?>&nbsp;</strong>.
+						</div>
+                        </div>
+						</div>
                     </section>
                 </div>
             </div>

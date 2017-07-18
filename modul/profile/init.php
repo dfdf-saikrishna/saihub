@@ -165,8 +165,8 @@ function the_profile() {
     });
     $app->get('/profile/certificate', function() {
 		global $hooks;
-        //$hooks->add_action('global_css','myprofile_css');
-        $hooks->add_action('global_js', 'certificate_js');
+        $hooks->add_action('global_css','myprofile_css');
+        $hooks->add_action('global_js', 'editprofile_js');
         $hooks->add_action('the_title', "certificate_title");
         the_head();
         include 'certificate.tpl.php';

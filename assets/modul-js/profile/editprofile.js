@@ -113,6 +113,16 @@ var Script = function () {
 }();
 
 
+function printDiv() 
+{
+  var divToPrint=document.getElementById('print-cert');
+  var newWin=window.open('','Print-Window');
+  newWin.document.open();
+  newWin.document.write('<html><head><title>'+newWin.document.title+'</title></head><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+  newWin.document.close();
+  setTimeout(function(){newWin.close();},10);
+}
+
 function paymentmsg(){
  $('#paymentmsg').show();
 }
