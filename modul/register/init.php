@@ -181,6 +181,7 @@ function downline_registration() {
        
         global $hooks;
         $hooks->add_action('global_css', "dreg_css");
+		$hooks->add_action('global_js', 'editprofile_js');
         $hooks->add_action('global_js', "dreg_js");
         $hooks->add_action('global_js', "step_js");
         $hooks->add_action('the_title', "dreg_title");
@@ -190,5 +191,7 @@ function downline_registration() {
         return "";
     });
 }
+
+
 
 include 'dreg.func.php';

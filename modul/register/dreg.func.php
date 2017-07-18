@@ -38,6 +38,7 @@ function thePackage(){
         $product .= "<option value='".$value['product_id']."'>".$value['product_name'].' - $'.$value['value'].'</option>';
     }
     return $product;
+	
 }
 function packageName($id){
     global $db;

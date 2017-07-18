@@ -29,9 +29,10 @@
                             <div class="widget-block">
                                 <div class="widget-content box-padding">
                                     <form id="stepy_form" class=" form-horizontal left-align form-well" method="POST">
+									
                                         <fieldset title="Step 1">
                                             <legend>user credential</legend>
-                                            <div class="form-group">
+											<div class="form-group">
                                                 <label class="col-md-2 col-sm-2 control-label">Username</label>
                                                 <div class="col-md-6 col-sm-6">
                                                     <input class="form-control" name="uname" id="uname" type="text"/>
@@ -197,6 +198,22 @@
                                                     </select>
                                                 </div>
                                             </div>
+											<div id="payment-div">
+											<div class="col-md-2"></div>
+			<div class="col-md-4">
+                <input id="pay1" name="question" type="radio" checked="checked" class=" radio with-font" onclick="paymentmsghide();">
+                <label for="pay1">Full Payment</label>
+            </div>
+            <div>
+                <input id="pay2" name="question" type="radio" class="with-font" onclick="paymentmsg();">
+                <label for="pay2">Partial Payment</label>
+                </div>
+			
+                            <div id="paymentmsg" style="display:none;" class="alert alert-success">
+                                <strong>50%</strong> of the amount will be Deducted From Register Wallet <br>
+                                <strong>50%</strong> From the E-Wallet if E-wallet balance is less than E-wallet blance will be go under minus values.
+                            </div>
+                <div><hr></div></div>
                                            <div class="form-group">
                                                 <label class="col-md-2 col-sm-2 control-label">Sponsor Username</label>
                                                 <div class="col-md-6 col-sm-6">
