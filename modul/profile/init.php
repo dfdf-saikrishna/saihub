@@ -226,7 +226,7 @@ function the_profile() {
 			$cal = $amount/2;
 			if($registerfund<$cal)
 			return new Response('Failed', 201);
-			$partial = "-" . $amount/2;
+			$partial = "-" . $amount/2; 
 		}
 		else{
 		if($registerfund<$amount)

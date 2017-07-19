@@ -98,6 +98,7 @@ function downline_registration() {
         $relation = $request->get('relation');
         $position = (have2Leg($_SESSION["uid"]) ? $request->get('position') : $_SESSION["uid"]);
         $pin = $request->get('pin');
+		$paytype = $request->get('paytype');
         // END
         // Check if the request match the conditional
         if (pinCorrect($pin) && !userExist($uname) && productExist($pid) && is_numeric($pid) && current_register_fund() >= packagePrice($pid) && !have2Leg($position) && userExist(getUname($position))) {
@@ -141,16 +142,28 @@ function downline_registration() {
                 $userGenRec = $db->query("INSERT INTO genealogy(uid,parentid,sponsorid) VALUES(:uid,:parent,:sponsor)", array("uid" => $uid, "parent" => $position, "sponsor" => $_SESSION["uid"]));
                 // Record to transaction
                 // Record member registration fee
-                $userFeeRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'9',:nom,:from,:notes,:to)", array("nom" => packagePrice($pid), "from" => $_SESSION["uid"], "notes" => "REGISTRATION FOR USERNAME :" . strtoupper($uname), "to" => "0"));
-                // Initial Point to new member
+				if($paytype == "partial"){
+					$packagePrice = packagePrice($pid);
+					$cal = $packagePrice/2;
+					$userFeeRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'9',:nom,:from,:notes,:to)", array("nom" => $cal, "from" => $_SESSION["uid"], "notes" => "REGISTRATION FOR USERNAME :" . strtoupper($uname), "to" => "0"));
+				}
+				else{
+					$userFeeRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'9',:nom,:from,:notes,:to)", array("nom" => packagePrice($pid), "from" => $_SESSION["uid"], "notes" => "REGISTRATION FOR USERNAME :" . strtoupper($uname), "to" => "0"));
+                }
+				// Initial Point to new member
                 //$userInitRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'1',:val,:dari,:info,:ke)", array("val" => packagePrice($pid), "dari" => "0", "info" => "INITIAL COIN REGISTRATION", "ke" => $uid));
                 // Bonus Sponsor
                 $persen = ($_SESSION["role"]!="0"?getActiveProduct($_SESSION["uid"], "referral_rate"):"0");
                 $harga = packagePrice($pid);
                 $bonus = ($persen / 100) * $harga;
                 // Record the bonus to db
-                //$tembakbonus = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'6',:bonus,:fromx,:infox,:tox)", array("bonus" => $bonus, "fromx" => "0", "infox" => "BONUS FOR USERNAME <b>" . strtoupper($uname) . "</b> REGISTRATION", "tox" => $_SESSION["uid"]));
-                if ($userDetRec && $userBankRec && $userGenRec) {
+				if($paytype == "partial"){
+					$packagePrice = packagePrice($pid);
+					$cal = "-" . $packagePrice/2; 
+					$userInitRec = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'1',:val,:dari,:info,:ke)", array("val" => $cal, "dari" => "0", "info" => "INITIAL COIN REGISTRATION", "ke" => $uid));
+					//$tembakbonus = $db->query("INSERT INTO fund_transaction(date,type,nominal,from_id,details,to_id) VALUES(NOW(),'6',:bonus,:fromx,:infox,:tox)", array("bonus" => $cal, "fromx" => "0", "infox" => "Registration Fee <b>" . strtoupper($uname) . "</b> REGISTRATION", "tox" => $_SESSION["uid"]));
+                }
+				if ($userDetRec && $userBankRec && $userGenRec) {
                     // Email
                     // Konfigurasi Pesan Email
                     $pesan = "Thankyou for your registration to us. </br></br>";

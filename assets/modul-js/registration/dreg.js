@@ -2,12 +2,14 @@
             return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
         }, "Letters only please"); 
 var Script = function () {
-
+	
     $.validator.setDefaults({
         submitHandler: function() { 
-           
+			var pay = "";
+            if($('#pay2').attr('checked')){
+				var pay = "partial";
+			}
             var dataString = $('#stepy_form').serialize();
-           
              $.ajax({
                 type: "POST",
                 url: "/register-account/submit",
@@ -235,6 +237,27 @@ var Script = function () {
                 },*/
             }
         });
+		
+		$('body').on('change', '#product', function() {
+			  var product = this.value;
+			  alert(product);
+			  if(product == "29" || product =="30"){
+				  $('#payment-div').show();
+			  }
+			  else{
+				  $('#payment-div').hide();
+			  }
+		})
+		
+		$('body').on('click', '.partial', function() {
+			$('#paytype').val("partial");
+		})
+		
+		$('body').on('click', '.full', function() {
+			$('#paytype').val("full"); 
+		})
+		
+		
     });
 
 
