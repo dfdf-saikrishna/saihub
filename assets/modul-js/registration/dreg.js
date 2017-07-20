@@ -74,6 +74,7 @@ var Script = function () {
                               }
                     }
                 },
+				/*
                 product: {
                     required: true,
                     remote: {
@@ -90,8 +91,8 @@ var Script = function () {
                               }
                     }
                 },
-				
-				paytype: {
+				*/
+				question: {
                     required: true,
                     remote: {
                         url: "/register-account/valuecheck",
@@ -236,6 +237,10 @@ var Script = function () {
                     required: "Please select join value",
                     remote: "You have insufficient register funds! Select other join value!"
                 },
+				question: {
+                    required: "Please select join value",
+                    remote: "You have insufficient register funds! Select other join value!"
+                },
                 /* bank_name: {
                     minlength:"Your bank name must be at least 3 character",
                     required: "Please fill your bank name information"
@@ -262,7 +267,7 @@ var Script = function () {
 		$('body').on('change', '#product', function() {
 			  var product = this.value;
 			  if(product == "29" || product =="30"){
-				  $('#payment-div').show();  
+				  $('#payment-div').show();
 			  }
 			  else{
 				  $('#payment-div').hide();
@@ -271,10 +276,12 @@ var Script = function () {
 		
 		$('body').on('click', '.partial', function() {
 			$('#paytype').val("partial");
+			$('#stepy_form').validate().resetForm();
 		})
 		
 		$('body').on('click', '.full', function() {
 			$('#paytype').val("full"); 
+			$('#stepy_form').validate().resetForm();
 		})
 		
 		
