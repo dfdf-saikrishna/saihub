@@ -82,7 +82,28 @@ var Script = function () {
                         data: {
                             product: function() {
                                 return $( "#product" ).val();
+                                },
+						    paytype: function() {
+                                return $( "#paytype" ).val();
                                 }
+							
+                              }
+                    }
+                },
+				
+				paytype: {
+                    required: true,
+                    remote: {
+                        url: "/register-account/valuecheck",
+                        type: "post",
+                        data: {
+                            product: function() {
+                                return $( "#product" ).val();
+                                },
+						    paytype: function() {
+                                return $( "#paytype" ).val();
+                                }
+							
                               }
                     }
                 },
@@ -240,9 +261,8 @@ var Script = function () {
 		
 		$('body').on('change', '#product', function() {
 			  var product = this.value;
-			  alert(product);
 			  if(product == "29" || product =="30"){
-				  $('#payment-div').show();
+				  $('#payment-div').show();  
 			  }
 			  else{
 				  $('#payment-div').hide();

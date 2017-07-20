@@ -67,8 +67,17 @@ function downline_registration() {
     $app->post('/register-account/valuecheck', function(Request $request) {
         global $db;
         $pid = $request->get('product');
-        echo (productExist($pid) && is_numeric($pid) && current_register_fund() >= packagePrice($pid) ? "true" : "false");
-        return "";
+		$paytype = $request->get('paytype');
+		//echo $paytype;die;
+		if($paytype == "partial"){
+			$initial = packagePrice($pid);
+			$price = $initial/2;
+			echo (productExist($pid) && is_numeric($pid) && current_register_fund() >= $price ? "true" : "false");
+		}
+		else{
+			echo (productExist($pid) && is_numeric($pid) && current_register_fund() >= packagePrice($pid) ? "true" : "false");
+        }
+		return "";
     });
     // Handler New Registration 
     $app->post('/register-account/submit', function(Request $request) {

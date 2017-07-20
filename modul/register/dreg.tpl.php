@@ -198,7 +198,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-											<div style="display:none;" id="payment-div">
+											<div style="display:none;" id="payment-div">							
 												<div class="col-md-2"></div>
 												<div class="col-md-4">
 													<input id="pay1" name="question" type="radio" checked="checked" class=" radio with-font full" onclick="paymentmsghide();">
@@ -228,7 +228,7 @@
                                                         <?php echo ($_SESSION["role"]=="0"?"<option value='0'>ADMIN ( NEW NETWORK )</option>":""); ?>
                                                         <?php echo availPosition(); ?>
                                                     </select>
-                                                    <span class="help-inline">Please make sure your decide first by looking your genealogy tree for help. Click <a href="/genealogy/tree">here</a></span>
+                                                    <span class="help-inline">Please make sure your decide first by looking your genealogy tree for help. Click <a href="/genealogy/tree" target="_blank">here</a></span>
                                                 </div>
                                             </div>
                                            

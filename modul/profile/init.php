@@ -223,10 +223,10 @@ function the_profile() {
 		$product = $request->get('product');
 		$pay = $request->get('pay');
 		if($pay == "partial"){
-			$cal = $amount/2;
+			$cal = (50 / 100) * $amount;
 			if($registerfund<$cal)
 			return new Response('Failed', 201);
-			$partial = "-" . $amount/2; 
+			$partial = "-" . (50 / 100) * $amount; 
 		}
 		else{
 		if($registerfund<$amount)
