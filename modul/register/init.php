@@ -109,8 +109,15 @@ function downline_registration() {
         $pin = $request->get('pin');
 		$paytype = $request->get('paytype');
         // END
+		if($paytype == "partial"){
+			$packagePrice = packagePrice($pid);
+			$packagePrice = $packagePrice/2;
+		}
+		else{
+			$packagePrice = packagePrice($pid);
+		}
         // Check if the request match the conditional
-        if (pinCorrect($pin) && !userExist($uname) && productExist($pid) && is_numeric($pid) && current_register_fund() >= packagePrice($pid) && !have2Leg($position) && userExist(getUname($position))) {
+        if (pinCorrect($pin) && !userExist($uname) && productExist($pid) && is_numeric($pid) && current_register_fund() >= $packagePrice && !have2Leg($position) && userExist(getUname($position))) {
             // PREPARE
             $db->bind("uname", $uname);
             $db->bind("pass", md5($pass));
