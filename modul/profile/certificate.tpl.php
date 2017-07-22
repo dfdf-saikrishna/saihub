@@ -1,5 +1,6 @@
 <?php
 $userId = getuserId();
+$availableFunds = current_fund();
 ?>
 <div class="row">
                 <div class="col-lg-12">
@@ -8,7 +9,11 @@ $userId = getuserId();
                             <a href="" class="btn btn-success"  onclick='printDiv();'>Print Certificate</a>
                         </header>
                         <div class="panel-body" id="print-view">
-						<div class="alert alert-danger" style="display:none;">Please pay full amount to download or print the certificate</div>
+						<?php if($availableFunds<0){ ?>
+						<div class="alert alert-danger">Please pay full amount to download or print the certificate</div>
+						<?php } ?>
+						<?php if($availableFunds>=0){ ?>
+						<div id="certificate">
 						<div><img src=".\..\assets\images\certificate.jpg" width="1000px"></div>
 						<!-- Serial No -->
 						<div class="cert-serial">
@@ -26,6 +31,8 @@ for the amount of $ <strong>&nbsp;<?php echo $userId["product"][0]["value"];?> &
 						echo date('d M Y', $yrdata);
 						?>&nbsp;</b>.
 						</div>
+						</div>
+						<?php } ?>
                         </div>
 						
 						<div style="display:none;">
